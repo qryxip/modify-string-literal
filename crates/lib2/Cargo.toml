@@ -1,0 +1,11 @@
+[package]
+name = "lib2"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+libc = "0.2.132"
