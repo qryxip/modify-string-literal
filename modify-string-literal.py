@@ -27,15 +27,13 @@ def main() -> None:
 
 
 def dll_name(stem: str) -> str:
-    match platform.system():
-        case "Windows":
-            return f"{stem}.dll"
-        case "Darwin":
-            return f"lib{stem}.dylib"
-        case "Linux":
-            return f"lib{stem}.so"
-        case _:
-            raise RuntimeError("unsupported")
+    if platform.system() == "Windows":
+        return f"{stem}.dll"
+    if platform.system() == "Darwin":
+        return f"lib{stem}.dylib"
+    if platform.system() == "Linux":
+        return f"lib{stem}.so"
+    raise RuntimeError("unsupported")
 
 
 if __name__ == "__main__":
